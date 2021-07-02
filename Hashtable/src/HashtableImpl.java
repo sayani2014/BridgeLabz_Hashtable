@@ -79,6 +79,7 @@ public class HashtableImpl<K, V> {
         Node previousNode = null;
         while (currentNode != null && currentNode.getKey().equals(word)) {
             head = currentNode.getNext();
+            return;
         }
         while (currentNode != null && !(currentNode.getKey().equals(word))) {
             previousNode = currentNode;
