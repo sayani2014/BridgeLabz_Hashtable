@@ -1,7 +1,7 @@
 /**
  * Purpose : Ability to implement hashtable using Linked List
- *           Ability to find frequency of words in a sentence like “To be or not to be”
- * Output : to = 2, be = 2, or = 1, not = 1
+ *           Ability to find frequency of words in a bigger sentence
+ *           Use hashcode to find index of the words
  *
  * @author : SAYANI KOLEY
  * @since : 02.07.2021
@@ -10,7 +10,8 @@
 public class HashTableMain {
     public static void main(String[] args) {
         HashtableImpl<String, Integer> hashImpl = new HashtableImpl();
-        String message = "To be or not to be";
+        String message = "Paranoids are not paranoid because they are paranoid but " +
+                "because they keep putting themselves deliberately into paranoid avoidable situations";
 
         //String to String[] conversion.
         //Split the words when a white space comes up.
