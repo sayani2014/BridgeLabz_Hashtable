@@ -1,7 +1,5 @@
 /**
- * Purpose : Ability to implement hashtable using Linked List
- *           Ability to find frequency of words in a bigger sentence
- *           Use hashcode to find index of the words
+ * Purpose : Ability to remove word "avoidable" from hashtable implemented using linked list
  *
  * @author : SAYANI KOLEY
  * @since : 02.07.2021
@@ -20,7 +18,7 @@ public class HashTableMain {
 
         //Iterate within the array
         for(String word: messageArray) {
-            //Search for the word in the linked list
+            //Search for the word in the hashtable
             Integer value =  hashImpl.get(word);
             //If not found, frequency of the word remains 1
             if( value == null)
@@ -30,7 +28,13 @@ public class HashTableMain {
                 value = value + 1;
             hashImpl.add(word , value);
         }
-        //Display the linked list
+        //Display the hashtable
+        System.out.println(hashImpl);
+
+        //Remove "avoidable" from the hashtable
+        hashImpl.remove("avoidable");
+
+        //Display the hashtable
         System.out.println(hashImpl);
     }
 }

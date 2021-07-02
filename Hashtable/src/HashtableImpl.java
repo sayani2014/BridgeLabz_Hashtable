@@ -30,7 +30,7 @@ public class HashtableImpl<K, V> {
         }
     }
 
-    //Append the value in the linked list
+    //Append the value in the hashtable
     public void append(Node myNode) {
         if(this.head == null)
             this.head = myNode;
@@ -42,7 +42,7 @@ public class HashtableImpl<K, V> {
         }
     }
 
-    //Searching for the word in the linked list
+    //Searching for the word in the hashtable
     public Node<K, V> searchNode(K data) {
         Node currentNode = head;
         int position = 0;
@@ -56,7 +56,7 @@ public class HashtableImpl<K, V> {
         return currentNode;
     }
 
-    //Searching for the word and get the value from the linked list
+    //Searching for the word and get the value from the hashtable
     public V get(K word) {
         int index = this.getBucketIndex(word);
         if(this.myBucketArray.get(index) == null)
@@ -73,13 +73,27 @@ public class HashtableImpl<K, V> {
         return index;
     }
 
-    //Print the linked list
+    //Remove "avoidable" from hashtable
+    public void remove(K word) {
+        Node currentNode = head;
+        Node previousNode = null;
+        while (currentNode != null && currentNode.getKey().equals(word)) {
+            head = currentNode.getNext();
+        }
+        while (currentNode != null && !(currentNode.getKey().equals(word))) {
+            previousNode = currentNode;
+            currentNode = currentNode.getNext();
+        }
+        if (currentNode != null) {
+            previousNode.next = currentNode.next;
+        }
+        if(currentNode == null)
+            System.out.println("Word not found!");
+    }
+
+    //Print the hashtable
     @Override
     public String toString() {
         return "MyLinkedListNodes{" + head + "}";
-    }
-
-    public void printNodes() {
-        System.out.println("My nodes: " + head);
     }
 }
